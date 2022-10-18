@@ -1,0 +1,2 @@
+# GradleDiscordBot
+Discord music bot
