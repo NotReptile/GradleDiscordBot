@@ -20,6 +20,7 @@ public class PlayCmd implements ICommand {
         final Member member = ctx.getMember();
         final GuildVoiceState memberVoiceState = member.getVoiceState();
 
+
         final TextChannel channel = ctx.getChannel();
 
         if (ctx.getArgs().isEmpty()) {
@@ -35,19 +36,12 @@ public class PlayCmd implements ICommand {
             final VoiceChannel memberChannel = memberVoiceState.getChannel();
 
             audioManager.openAudioConnection(memberChannel);
-            //channel.sendMessage("я должен быть в гс, бездарь").queue();
-            //return;
         }
 
         if (!memberVoiceState.inVoiceChannel()) {
             channel.sendMessage("ты должен быть в гс, бездарь").queue();
             return;
         }
-
-/*        if (!memberVoiceState.getChannel().equals(selfVoiceState.getChannel())) {
-            channel.sendMessage("мы должны быть в одном гс, бездарь").queue();
-            return;
-        }*/
 
         String link = String.join(" ", ctx.getArgs());
 

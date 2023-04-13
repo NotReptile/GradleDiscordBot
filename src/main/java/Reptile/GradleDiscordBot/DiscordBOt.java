@@ -9,7 +9,7 @@ import javax.security.auth.login.LoginException;
 import java.util.EnumSet;
 
 public class DiscordBOt {
-    private DiscordBOt() throws LoginException{
+    public static void main(String[] args) throws LoginException {
         JDABuilder.createDefault(
                         Config.get("token"),
                         GatewayIntent.GUILD_MEMBERS,
@@ -25,8 +25,5 @@ public class DiscordBOt {
                 .addEventListeners(new Listener())
                 .setActivity(Activity.listening("After Dark"))
                 .build();
-    }
-    public static void main(String[] args) throws LoginException {
-        new DiscordBOt();
     }
 }
